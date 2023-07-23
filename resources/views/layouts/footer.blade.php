@@ -3,9 +3,7 @@
       <div class="mb-2 mb-md-0">
        Created By Hammam | 2023
       </div>
-      <div>
-        
-        
+      <div>        
       </div>
     </div>
   </footer>

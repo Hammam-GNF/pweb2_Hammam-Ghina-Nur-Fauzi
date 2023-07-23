@@ -15,7 +15,8 @@ return new class extends Migration
             $table->increments('id');
             $table->string('nama_siswa');
             $table->string('nis');
-            $table->string('tgl_lahir');
+            $table->string('jenis_kelamin');
+            $table->date('tgl_lahir');
             $table->timestamps();
         });
     }

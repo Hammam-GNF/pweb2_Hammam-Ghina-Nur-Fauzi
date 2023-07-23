@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class UserSeeder extends Seeder
 {
@@ -15,16 +15,17 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'role_id' => '1',
-            'nama' => 'Hammam',
-            'email' => 'hammam@gmail.com',
-            'password' => Hash::make('admin'),
+            'role_id' => 1, // Gunakan nilai angka (integer) untuk mewakili ID peran (role)
+            'name' => 'Pusinduk',
+            'email' => 'pusinduk@gmail.com',
+            'password' => Hash::make('Pusinduk'),
         ]);
+
         User::create([
-            'role_id' => '2',
-            'nama' => 'Narindra',
-            'email' => 'narindra@gmail.com',
-            'password' => Hash::make('guru'),
+            'role_id' => 2, // Gunakan nilai angka (integer) untuk mewakili ID peran (role)
+            'name' => 'Yaine',
+            'email' => 'yai@gmail.com',
+            'password' => Hash::make('Yaine'),
         ]);
     }
 }

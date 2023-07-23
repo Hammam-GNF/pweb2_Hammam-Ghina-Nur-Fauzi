@@ -15,6 +15,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('nama_guru');
             $table->string('nip');
+            $table->string('jenis_kelamin');
             $table->date('tgl_lahir');
             $table->timestamps();
         });

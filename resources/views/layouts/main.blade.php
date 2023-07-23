@@ -57,6 +57,43 @@
   <!-- build:js assets/vendor/js/core.js -->
   @include('layouts.script')
   
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
+<script>
+  $('.show_delete').click(function(event) {
+      var form =  $(this).closest("form");
+      var name = $(this).data("name");
+      event.preventDefault();
+      swal({
+          title: `Apakah Anda Ingin Menghapus Data ini?`,
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+      })
+      .then((willDelete) => {
+          if (willDelete) {
+              form.submit();
+          }
+      });
+  });
+  </script>
+<script>
+  $('.show_sukses').click(function(event) {
+      var form =  $(this).closest("form");
+      var name = $(this).data("name");
+      event.preventDefault();
+      swal({
+          title: `Apakah Anda Ingin Mengubah Data ini?`,
+          icon: "success",
+          buttons: true,
+          dangerMode: true,
+      })
+      .then((willDelete) => {
+          if (willDelete) {
+              form.submit();
+          }
+      });
+  });
+  </script>
 
 </html>

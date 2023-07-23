@@ -8,33 +8,33 @@
 
       <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
 
-        
-
-
-        
         <!-- Search -->
-        <div class="navbar-nav align-items-center">
-          <div class="nav-item d-flex align-items-center">
-            <i class="bx bx-search fs-4 lh-0"></i>
-            <input type="text" class="form-control border-0 shadow-none" placeholder="Search..." aria-label="Search...">
-          </div>
-        </div>
+        @if (auth()->user()->roles->nama_role == "Admin")
+        <a href="{{ url('/dashboard') }}">
+        <span class="app-brand-text demo text-body fw-bolder" style="text-transform: none;">Administrator</span>
+        </a>
+        @endif
+
+        @if (auth()->user()->roles->nama_role == "Penanggungjawab")
+        <a href="{{ url('/dashboard') }}">
+        <span class="app-brand-text demo text-body fw-bolder" style="text-transform: none;">Penanggungjawab</span>
+        </a>
+        @endif
         <!-- /Search -->
         
 
         <ul class="navbar-nav flex-row align-items-center ms-auto">
-          
-
-          
-         
-          
-
-
+  
           <!-- User -->
           <li class="nav-item navbar-dropdown dropdown-user dropdown">
             <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
               <div class="avatar avatar-online">
-                <img src="{{ asset('assets/img/avatars/pas photo.png') }}" alt class="w-px-30 h-auto rounded-circle">
+                @if (auth()->user()->roles->nama_role == "Admin")
+                <img src="{{ asset('assets/img/avatars/pas photo.png') }}" alt class=" avatar-img rounded-circle">
+                @endif
+                @if (auth()->user()->roles->nama_role == "Penanggungjawab")
+                <img src="{{ asset('assets/img/avatars/6.png') }}" alt class=" avatar-img rounded-circle">
+                @endif
               </div>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
@@ -43,12 +43,17 @@
                   <div class="d-flex">
                     <div class="flex-shrink-0 me-3">
                       <div class="avatar avatar-online">
-                        <img src="{{ asset('assets/img/avatars/pas photo.png') }}" alt class="w-px-30 h-auto rounded-circle">
+                        @if (auth()->user()->roles->nama_role == "Admin")
+                        <img src="{{ asset('assets/img/avatars/pas photo.png') }}" alt class=" avatar-img rounded-circle">
+                        @endif
+                        @if (auth()->user()->roles->nama_role == "Penanggungjawab")
+                        <img src="{{ asset('assets/img/avatars/6.png') }}" alt class=" avatar-img rounded-circle">
+                        @endif
                       </div>
                     </div>
                     <div class="flex-grow-1">
-                      <span class="fw-semibold d-block">Hammam GNF</span>
-                      <small class="text-muted">Admin</small>
+                      <span class="fw-semibold d-block">{{ Auth::user()->name }}</span>
+                      <small class="text-muted">{{ Auth::user()->roles->nama_role }}</small>
                     </div>
                   </div>
                 </a>
@@ -56,30 +61,7 @@
               <li>
                 <div class="dropdown-divider"></div>
               </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <i class="bx bx-user me-2"></i>
-                  <span class="align-middle">My Profile</span>
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <i class="bx bx-cog me-2"></i>
-                  <span class="align-middle">Settings</span>
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <span class="d-flex align-items-center align-middle">
-                    <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
-                    <span class="flex-grow-1 align-middle">Billing</span>
-                    
-                  </span>
-                </a>
-              </li>
-              <li>
-                <div class="dropdown-divider"></div>
-              </li>
+            
               <li>
                 <a class="dropdown-item" href="{{ route ('logout') }}">
                   <i class="bx bx-power-off me-2"></i>

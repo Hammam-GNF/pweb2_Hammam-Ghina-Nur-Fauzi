@@ -16,11 +16,13 @@ class GuruSeeder extends Seeder
         Guru::create([
             'nama_guru' => 'Narindra',
             'nip' => '12345',
+            'jenis_kelamin' => 'L',
             'tgl_lahir' => '1997-01-01',
         ]);
         Guru::create([
             'nama_guru' => 'Laura',
             'nip' => '54321',
+            'jenis_kelamin' => 'P',
             'tgl_lahir' => '1998-01-01',
         ]);
     }
